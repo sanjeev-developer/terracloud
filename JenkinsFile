@@ -35,12 +35,5 @@ pipeline {
             }
         }
 
-        stage('destroy') {
-            input "destroy approval"
-            steps {
-                sh 'terraform destroy'
-                // Add commands for deploying your project here
-            }
-        }
     }
 }
