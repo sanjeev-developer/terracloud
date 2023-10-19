@@ -9,14 +9,14 @@ pipeline {
 
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sanjeev-developer/terracloud']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Raunak0604/terracloud']])
                 // Add commands for building your project here
             }
         }
 
         stage('init') {
             steps {
-                sh 'terraform init -reconfigure'
+                sh 'terraform init'
                 // Add commands for building your project here
             }
         }
@@ -30,7 +30,7 @@ pipeline {
 
         stage('apply') {
             steps {
-                sh 'terraform apply'
+                sh 'terraform apply -auto-approve'
                 // Add commands for deploying your project here
             }
         }
