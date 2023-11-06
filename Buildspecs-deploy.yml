@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  terrainstall:
+  install:
     command:
       - curl https://releases.hashicorp.com/terraform/1.6.3/terraform_1.6.3_linux_amd64.zip
       - sudo apt install unzip
@@ -9,9 +9,10 @@ phases:
       - mv terraform /user/local/bin/
       - terraform --version
       
-  terradeploy:
+  build:
     command:  
       - terraform init
       - terraform plan
       - terraform apply
+      
    
